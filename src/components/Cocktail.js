@@ -1,8 +1,15 @@
 import React from "react";
 
 const Cocktail = props => {
+
+
+
   return (
-    <div onClick={()=> props.addCocktail(props.cocktail)}>
+    <div onClick={()=> {
+        props.addCocktail(props.cocktail)
+        
+      }
+    }>
 
       <h2>{props.cocktail.name}</h2>
 

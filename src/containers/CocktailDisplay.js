@@ -1,18 +1,19 @@
 import React from "react";
-import Cocktail from "../components/Cocktail";
+import CocktailDisplayCocktail from "../components/CocktailDisplayCocktail";
 
 const CocktailDisplay = props => {
   return (
-    <div>
-      <h1>Cocktail Display</h1>
-      <ul>{
+    <div className="CDdiv">
+      <h1 className="CDh1">Cocktail Display</h1>
+      {
           props.myCocktails.map((cocktail)=> {
-            return <Cocktail
+            return <CocktailDisplayCocktail
                     cocktail={cocktail}
-                
+                    cocktailDescription={cocktail.description}
                     />
           })
-        }</ul>
+        }
+
     </div>
   );
 };

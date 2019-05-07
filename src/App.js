@@ -4,8 +4,9 @@ import "./App.css";
 import CocktailContainer from "./containers/CocktailContainer";
 import CocktailDisplay from "./containers/CocktailDisplay";
 import CocktailForm from "./components/CocktailForm"
+import CocktailDisplayCocktail from "./components/CocktailDisplayCocktail"
 
-const URL = "http://localhost:3000/api/v1/cocktails"
+const URL = "http://localhost:3000/api/v1/cocktails/"
 
 class App extends Component {
 
@@ -17,16 +18,18 @@ class App extends Component {
     }
   }
 
-componentDidMount(){
-  fetch(URL)
-  .then(res => res.json())
-  .then(data => {
-    console.log(data)
-    this.setState({
-      cocktails: data
+  componentDidMount(){
+    fetch(URL)
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      this.setState({
+        cocktails: data
+      })
     })
-  })
-}
+  }
+
+
 
 addCocktail = (cocktail) => {
   this.setState({
@@ -54,15 +57,20 @@ createNewCocktail = (state) => {
 const {cocktails, myCocktails} = this.state
 
     return (
-      <div className="book-container">
+      <div className="main-container">
+        <div class="id">
+        <CocktailForm
+          createNewCocktail={this.createNewCocktail}
+          />
+        </div>
+
         <CocktailContainer
           cocktails={cocktails}
           addCocktail={this.addCocktail}
-          createNewCocktail={this.createNewCocktail}
           />
+
         <CocktailDisplay
           myCocktails={myCocktails}
-    
            />
 
       </div>

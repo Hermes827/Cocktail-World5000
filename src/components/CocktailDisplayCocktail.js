@@ -1,4 +1,5 @@
 import React from "react";
+import Proportion from "../components/Proportion";
 
 const cocktailURL = "http://localhost:3000/api/v1/cocktails/"
 
@@ -11,7 +12,7 @@ constructor(){
     description: "",
     instructions: "",
     source: "",
-    proportions: ""
+    proportions: []
   }
 }
 
@@ -19,6 +20,8 @@ componentDidMount(){
 fetch(cocktailURL + `${this.props.cocktail.id}`)
 .then(res => res.json())
 .then(data => {
+  console.log(data.proportions)
+  
     this.setState({
       name: data.name,
       description: data.description,
@@ -46,7 +49,13 @@ render(){
       <br/>
       <h2>Source:</h2>
       <h2>{this.state.source}</h2>
-      {console.log(this.state.proportions)}
+      <ul>{
+        this.state.proportions.map((ingredient)=> {
+          return <Proportion
+                  ingredient={ingredient}
+                  />
+        })
+          }</ul>
     </div>
   );
 };

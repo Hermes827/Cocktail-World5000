@@ -58,7 +58,7 @@ const {cocktails, myCocktails} = this.state
 
     return (
       <div className="main-container">
-        <div class="id">
+        <div className="id">
         <CocktailForm
           createNewCocktail={this.createNewCocktail}
           />
@@ -68,7 +68,6 @@ const {cocktails, myCocktails} = this.state
           cocktails={cocktails}
           addCocktail={this.addCocktail}
           />
-
         <CocktailDisplay
           myCocktails={myCocktails}
            />

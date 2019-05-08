@@ -36,9 +36,8 @@ createCocktail = () => {
   console.log(info, '-=---info')
 
   fetch(backendURL, {
-
     method: "POST",
-    body: JSON.stringify(info),
+    body: JSON.stringify({cocktail: info}),
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
@@ -123,19 +122,23 @@ this.setState({
           <br/>
           <h1>Proportions</h1>
 
-            <input
-              className="input"
-              type="text"
-              name="ingredient"
-              placeholder="ingredient"
-              />
-              <input
-                className="input"
-                type="text"
-                name="amount"
-                placeholder="amount"
-                />
-              <button><button/>
+          <input
+            className="input"
+            type="text"
+            name="ingredient"
+            placeholder="ingredient"
+            value={this.state.ingredient}
+            onChange={this.handleChange}
+            />
+          <input
+            className="input"
+            type="text"
+            name="amount"
+            placeholder="amount"
+            value={this.state.amount}
+            onChange={this.handleChange}
+            />
+
         <input value="submit" type="submit"/>
       </form>
     )
